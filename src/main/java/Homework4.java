@@ -27,12 +27,14 @@ public class Homework4 {
     }
 
     public static void showField() {
+        System.out.println("-----");
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[0].length; j++) {
                 System.out.print(field[i][j] + " ");
             }
             System.out.println();
         }
+        System.out.println("-----");
     }
 
     public static void movePlayer() {
@@ -45,7 +47,7 @@ public class Homework4 {
             try {
                 int x = sc.nextInt() - 1;
                 int y = sc.nextInt() - 1;
-                if (x > 0 && x < field.length && y >= 0 && y < field.length)
+                if (x >= 0 && x < field.length && y >= 0 && y < field.length)
                     if (!field[x][y].equals("X") || !field[x][y].equals("O")) {
                         field[x][y] = "X";
                         isNotFinishedMove = false;
@@ -109,8 +111,8 @@ public class Homework4 {
         while (isNotFinishedMove) {
             int x = random.nextInt(field.length);
             int y = random.nextInt(field.length);
-            if (!field[x][y].equals("X") || !field[x][y].equals("O")) {
-                field[x][y] = "X";
+            if (!field[x][y].equals("X") && !field[x][y].equals("O")) {
+                field[x][y] = "O";
                 isNotFinishedMove = false;
             }
 
